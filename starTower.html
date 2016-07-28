@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+    <title>starTower_homework</title>    
+    </head>
+    <body>
+        <style type="text/css">
+        .box{
+         position: fixed;
+	        top: 100px;
+	        left: 30%;
+	        color: #006030;
+	        -webkit-transform: rotate(0deg);
+        }
+        
+        .Button{
+	        background-color: 	#DCB5FF ;
+        }
+        </style>
+        <input class="Button" type="button" id="sartower" value="Sartower">
+        <input class="Button" type="button" id="triangle" value="Triangle">
+        <input class="Button" type="button" id="threeTriangle" value="ThreeTriangle">
+        <input class="Button" type="button" id="mitsubishi" value="Mitsubishi">
+        <input class="Button" type="button" id="rotate" value="Rotate">
+        <div class="box" id="p1"></div>
+        
+        <script>
+        var i=1;
+        var j=1;
+        var k=1;
+        var m=1;
+        var w=3;
+        var a=1;
+        var b=1;
+        var l;
+        var rotateBox;
+        function Sartower(){
+         document.getElementById("p1").innerHTML =null;
+         for( i = 1 ; i <= 6; i++ )
+         {
+          for(j=1 ; j <= i ; j++ )
+          {
+          document.getElementById("p1").innerHTML += "*";
+          }
+          document.getElementById("p1").innerHTML += "<br>";
+         }
+         } 
+        
+        function Triangle(){
+         document.getElementById("p1").innerHTML =null;            
+         for( i = 1 ; i <= 6 ; i++ )
+         {
+            l=i; 
+           for( j = 1 ; j <= 6-l ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           for( k = 1 ; k <= l ; k++ )
+           {
+            document.getElementById("p1").innerHTML +="*";
+           }
+           for( m = 1 ; m < l ; m++ )
+           {
+            document.getElementById("p1").innerHTML += "*";   
+           }
+           document.getElementById("p1").innerHTML += "<br>";
+         }
+        }
+        
+        function ThreeTriangle(){        
+         document.getElementById("p1").innerHTML =null;
+         for( i = 1 ; i <= 6; i++ )
+         {
+          for(j=1 ; j <= 2 ; j++ )
+          {
+           for(a=1 ; a <= 6-i ; a++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";
+           }
+           for(b=1 ; b <= i ; b++ )
+           {
+            document.getElementById("p1").innerHTML += "*";
+           }
+           
+           for(a=1 ; a <= i-1 ; a++ )
+           {
+            document.getElementById("p1").innerHTML += "*";
+           }
+           for(b=1 ; b <= 6-i ; b++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";
+           }
+          }
+          document.getElementById("p1").innerHTML += "<br>";
+         }
+         
+         for( i = 1 ; i <= 6 ; i++ )
+         {
+            l=i; 
+           for( j = 1 ; j <= 11-l ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           for( k = 1 ; k <= l ; k++ )
+           {
+            document.getElementById("p1").innerHTML +="*";
+           }
+           for( m = 1 ; m < l ; m++ )
+           {
+            document.getElementById("p1").innerHTML += "*";   
+           }
+           document.getElementById("p1").innerHTML += "<br>";
+         }
+         
+         
+         
+        }
+        
+        
+        
+        function Mitsubishi(){
+            document.getElementById("p1").innerHTML =null;
+            for( i = 1 ; i <= 6 ; i++ )
+         {
+            l=i; 
+           for( j = 1 ; j <= 17-l ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           for( k = 1 ; k <= l ; k++ )
+           {
+            document.getElementById("p1").innerHTML +="*";
+           }
+           for( m = 1 ; m < l ; m++ )
+           {
+            document.getElementById("p1").innerHTML += "*";   
+           }
+           document.getElementById("p1").innerHTML += "<br>";
+         }
+            for(i = 1 ; i <= 5 ; i++ )
+         {
+             l=i;
+             for( j = 1 ; j <= 11+l ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           for( k = 1 ; k <= 11-2*l ; k+=1 )
+           {
+            document.getElementById("p1").innerHTML +="*";
+           }
+           document.getElementById("p1").innerHTML += "<br>";
+         }        
+        
+         for( i = 1 ; i <= 6 ; i++ )
+         {
+             l=i;
+            for( j = 1 ; j <= 6-l ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           for( j = 1 ; j <= 6 ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "*"+"&nbsp;&nbsp;";   
+           }
+           for( j = 1 ; j < 2*l-1 ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           for( j = 1 ; j <= 6 ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "*"+"&nbsp;&nbsp;";   
+           }
+           for( j = 1 ; j <= 6-l ; j++ )
+           {
+            document.getElementById("p1").innerHTML += "&nbsp;&nbsp;";   
+           }
+           document.getElementById("p1").innerHTML += "<br>";
+         }    
+        
+        
+        }
+        function Rotate(){
+            document.getElementById("p1").style.transform ="rotate("+ w +"deg)";
+            w=w+3;
+            rotateBox=window.setTimeout('Rotate()',100);
+            document.getElementById("rotate").onclick = Stop;
+            document.getElementById("rotate").value="Stop";
+        }
+        function Stop(){
+            window.clearTimeout(rotateBox);
+            document.getElementById("rotate").onclick = Rotate;
+            document.getElementById("rotate").value="Rotate";
+        }
+        document.getElementById("sartower").onclick = Sartower;
+        document.getElementById("triangle").onclick = Triangle;
+        document.getElementById("threeTriangle").onclick = ThreeTriangle;
+        document.getElementById("mitsubishi").onclick = Mitsubishi;
+        document.getElementById("rotate").onclick = Rotate;
+        
+        </script>
+    </body>
+</html>
